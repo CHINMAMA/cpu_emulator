@@ -1,5 +1,4 @@
 #include <inttypes.h>
-#include <cstddef>
 #include <stdexcept>
 #include <cstdlib>
 
@@ -84,12 +83,12 @@ namespace stack {
     void Stack<T>::reserve(int64_t size) {
         if (_data == nullptr) {
             _data = (T*)malloc(size * sizeof(T));
-            if (_data == NULL) {
+            if (_data == nullptr) {
                 throw std::runtime_error("Can not allocate memory");
             }
         } else {
             T* tmp = (T*)realloc(_data, size * sizeof(T));
-            if (tmp == NULL) {
+            if (tmp == nullptr) {
                 throw std::runtime_error("Can not allocate memory");
             }
             _data = tmp;
